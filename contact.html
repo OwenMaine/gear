@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Standard Gear Manufacturing Inc.</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- AOS (Animate on Scroll) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* ============================================
+        SHARED STYLES
+        ============================================ */
+        :root {
+            --bg-dark-charcoal: #1A1A1A;
+            --text-parchment: #FDF6E3;
+            --accent-copper: #468A84;
+            --accent-brass: #D4AF37;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background-color: var(--bg-dark-charcoal);
+            color: var(--text-parchment);
+        }
+
+        .font-heading {
+            font-family: 'Cinzel', serif;
+        }
+        
+        .text-copper { color: var(--accent-copper); }
+        .text-brass { color: var(--accent-brass); }
+        
+        .btn-primary {
+            @apply inline-block bg-transparent border-2 border-brass text-brass font-bold py-3 px-8 rounded-sm uppercase tracking-widest transition-all duration-300 ease-in-out;
+        }
+
+        .btn-primary:hover {
+            @apply bg-brass text-black shadow-lg;
+            transform: translateY(-3px);
+        }
+
+        .section-title {
+            @apply text-4xl md:text-5xl font-heading font-bold text-white mb-4 tracking-wider;
+        }
+        
+        .nav-link {
+            @apply text-white/70 hover:text-brass transition-colors duration-300 tracking-widest text-sm;
+        }
+        
+        .active-nav {
+             @apply text-brass font-bold;
+        }
+
+        .section-divider {
+            border-top: 1px solid rgba(253, 246, 227, 0.1);
+        }
+        
+        /* ============================================
+        CONTACT PAGE SPECIFIC STYLES
+        ============================================ */
+        .page-hero {
+            height: 60vh;
+            background: linear-gradient(rgba(26, 26, 26, 0.85), rgba(26, 26, 26, 0.85)), url('images/14.jpg') no-repeat center center/cover;
+            background-attachment: fixed;
+        }
+
+        .contact-info-item {
+            @apply flex items-center bg-black/20 p-6 border border-white/10;
+        }
+        
+        .contact-info-icon {
+            @apply text-4xl text-copper mr-6;
+        }
+
+        /* Form Styles */
+        .form-input, .form-textarea {
+            @apply w-full bg-black/20 border border-white/20 text-white/80 p-3 focus:outline-none focus:border-brass transition-colors duration-300;
+        }
+        
+        .map-container {
+            @apply border-2 border-white/20 p-2;
+        }
+        
+        .map-container iframe {
+            filter: grayscale(100%) invert(90%) contrast(1.2);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="bg-black/50 backdrop-blur-sm fixed w-full z-50 top-0">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center section-divider">
+            <a href="index.html" class="text-2xl font-bold font-heading text-white">
+                Standard Gear<span class="text-brass">.</span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="contact.html" class="nav-link active-nav">Contact</a>
+            </nav>
+            <div class="hidden md:flex items-center space-x-4 text-sm">
+                 <i class="fas fa-phone text-brass"></i>
+                 <span class="text-white/70">(503) 513-7118</span>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black/90">
+            <a href="index.html" class="block py-3 px-4 text-sm hover:bg-brass hover:text-black text-white">Home</a>
+            <a href="about.html" class="block py-3 px-4 text-sm hover:bg-brass hover:text-black text-white">About Us</a>
+            <a href="services.html" class="block py-3 px-4 text-sm hover:bg-brass hover:text-black text-white">Services</a>
+            <a href="contact.html" class="block py-3 px-4 text-sm hover:bg-brass hover:text-black text-white">Contact</a>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero flex items-center justify-center text-center">
+        <div data-aos="zoom-in">
+            <h1 class="text-5xl md:text-7xl font-extrabold font-heading text-white">
+                Get In <span class="text-brass">Touch</span>
+            </h1>
+            <p class="text-xl text-white/80 mt-4">Let's start a conversation about your next project.</p>
+        </div>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section class="py-24 bg-transparent">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="contact-info-item" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-map-marker-alt contact-info-icon"></i>
+                    <div>
+                        <h3 class="font-heading text-xl text-white font-bold">Our Location</h3>
+                        <p class="text-white/60">2467 SE Ochoco St,<br>Portland, OR 97222</p>
+                    </div>
+                </div>
+                <div class="contact-info-item" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-phone-volume contact-info-icon"></i>
+                    <div>
+                        <h3 class="font-heading text-xl text-white font-bold">Call Us</h3>
+                        <p class="text-white/60">(503) 513-7118</p>
+                    </div>
+                </div>
+                <div class="contact-info-item" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-paper-plane contact-info-icon"></i>
+                    <div>
+                        <h3 class="font-heading text-xl text-white font-bold">Email Us</h3>
+                        <p class="text-white/60">contact@standardgear.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form & Map Section -->
+    <section class="py-24 bg-black/20 section-divider">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-start gap-16">
+                <!-- Form -->
+                <div class="md:w-1/2 w-full" data-aos="fade-right">
+                    <h2 class="section-title">Send Us a <span class="text-copper">Message</span></h2>
+                    <p class="text-white/70 mb-8 leading-relaxed">
+                        Have a question or need a quote? Fill out the form below and a member of our team will get back to you shortly.
+                    </p>
+                    <form action="#" method="POST">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <input type="text" name="name" placeholder="Your Name" class="form-input" required>
+                            <input type="email" name="email" placeholder="Your Email" class="form-input" required>
+                        </div>
+                        <div class="mb-6">
+                            <input type="text" name="subject" placeholder="Subject" class="form-input" required>
+                        </div>
+                        <div class="mb-6">
+                            <textarea name="message" rows="6" placeholder="Your Message" class="form-textarea" required></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn-primary w-full">Submit Inquiry</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- Map -->
+                <div class="md:w-1/2 w-full" data-aos="fade-left">
+                     <h2 class="section-title">Find <span class="text-copper">Our Workshop</span></h2>
+                     <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2798.5316070733293!2d-122.63996582399226!3d45.45909407107398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54950acc548b348b%3A0x46b34dcfbe069175!2s2467%20SE%20Ochoco%20St%2C%20Milwaukie%2C%20OR%2097222!5e0!3m2!1sen!2sus!4v1753029344712!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black section-divider">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-sm">
+                <!-- Company Info -->
+                <div>
+                    <h3 class="text-xl font-bold font-heading text-white mb-4">Standard Gear<span class="text-brass">.</span></h3>
+                    <p class="text-white/50">Engineering Legacies Since 1982.</p>
+                </div>
+                <!-- Links -->
+                <div>
+                    <h4 class="text-base font-bold tracking-widest uppercase text-white/80 mb-4">Navigate</h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="nav-link">About</a></li>
+                        <li><a href="services.html" class="nav-link">Services</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                        <li><a href="#" class="nav-link">Careers</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-base font-bold tracking-widest uppercase text-white/80 mb-4">Location</h4>
+                    <address class="not-italic text-white/50 space-y-3">
+                        <p><i class="fas fa-map-marker-alt mr-2 text-copper"></i>2467 SE Ochoco St, Portland, OR 97222</p>
+                        <p><i class="fas fa-phone mr-2 text-copper"></i>(503) 513-7118</p>
+                        <p><i class="fas fa-envelope mr-2 text-copper"></i>contact@standardgear.com</p>
+                    </address>
+                </div>
+                <!-- Social Media -->
+                <div>
+                    <h4 class="text-base font-bold tracking-widest uppercase text-white/80 mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white/50 hover:text-brass text-2xl"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white/50 hover:text-brass text-2xl"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white/50 hover:text-brass text-2xl"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-white/10 pt-8 text-center text-white/40 text-xs">
+                <p>&copy; <span id="year"></span> Standard Gear Manufacturing Inc. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- AOS (Animate on Scroll) -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 50,
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>

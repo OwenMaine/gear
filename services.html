@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Standard Gear Manufacturing Inc.</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- AOS (Animate on Scroll) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* ============================================
+        SHARED STYLES
+        ============================================ */
+        :root {
+            --bg-dark-charcoal: #1A1A1A;
+            --text-parchment: #FDF6E3;
+            --accent-copper: #468A84;
+            --accent-brass: #D4AF37;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background-color: var(--bg-dark-charcoal);
+            color: var(--text-parchment);
+        }
+
+        .font-heading {
+            font-family: 'Cinzel', serif;
+        }
+        
+        .text-copper { color: var(--accent-copper); }
+        .text-brass { color: var(--accent-brass); }
+        
+        .btn-primary {
+            @apply inline-block bg-transparent border-2 border-brass text-brass font-bold py-3 px-8 rounded-sm uppercase tracking-widest transition-all duration-300 ease-in-out;
+        }
+
+        .btn-primary:hover {
+            @apply bg-brass text-black shadow-lg;
+            transform: translateY(-3px);
+        }
+
+        .section-title {
+            @apply text-4xl md:text-5xl font-heading font-bold text-white mb-4 tracking-wider;
+        }
+        
+        .nav-link {
+            @apply text-white/70 hover:text-brass transition-colors duration-300 tracking-widest text-sm;
+        }
+        
+        .active-nav {
+             @apply text-brass font-bold;
+        }
+
+        .section-divider {
+            border-top: 1px solid rgba(253, 246, 227, 0.1);
+        }
+        
+        /* ============================================
+        SERVICES PAGE SPECIFIC STYLES
+        ============================================ */
+        .page-hero {
+            height: 60vh;
+            background: linear-gradient(rgba(26, 26, 26, 0.85), rgba(26, 26, 26, 0.85)), url('images/10.jpg') no-repeat center center/cover;
+            background-attachment: fixed;
+        }
+
+        .service-section {
+            @apply py-24;
+        }
+
+        .service-content-wrapper {
+            @apply flex flex-col md:flex-row items-center gap-16;
+        }
+
+        .service-image-wrapper {
+            @apply md:w-1/2 border-2 border-white/20 p-2;
+        }
+        
+        .service-text-wrapper {
+            @apply md:w-1/2;
+        }
+
+        .service-list li {
+            @apply flex items-start mb-3;
+        }
+        
+        .service-list i {
+            @apply text-copper text-xl mr-4 mt-1;
+        }
+
+        .quality-grid {
+            @apply grid grid-cols-1 md:grid-cols-3 gap-8 text-center;
+        }
+
+        .quality-item {
+            @apply bg-black/20 p-8 border border-white/10;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="bg-black/50 backdrop-blur-sm fixed w-full z-50 top-0">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center section-divider">
+            <a href="index.html" class="text-2xl font-bold font-heading text-white">
+                Standard Gear<span class="text-brass">.</span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link active-nav">Services</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="hidden md:flex items-center space-x-4 text-sm">
+                 <i class="fas fa-phone text-brass"></i>
+                 <span class="text-white/70">(503) 513-7118</span>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black/90">
+            <a href="index.html" class="block py-3 px-4 text-sm hover:bg-brass hover:text-black text-white">Home</a>
+            <a href="about.html" class="block py-3 px-4 text-sm hover:bg-brass hover:text-black text-white">About Us</a>
+            <a href="services.html" class="block py-3 px-4 text-sm hover:bg-brass hover:text-black text-white">Services</a>
+            <a href="contact.html" class="block py-3 px-4 text-sm hover:bg-brass hover:text-black text-white">Contact</a>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero flex items-center justify-center text-center">
+        <div data-aos="zoom-in">
+            <h1 class="text-5xl md:text-7xl font-extrabold font-heading text-white">
+                Our <span class="text-brass">Technical</span> Capabilities
+            </h1>
+            <p class="text-xl text-white/80 mt-4">Precision services for the most demanding applications.</p>
+        </div>
+    </section>
+
+    <!-- Service 1: Custom Gear Manufacturing -->
+    <section class="service-section bg-transparent">
+        <div class="container mx-auto px-6">
+            <div class="service-content-wrapper">
+                <div class="service-image-wrapper" data-aos="fade-right">
+                    <img src="images/11.jpg" alt="Custom Gear Manufacturing" class="w-full">
+                </div>
+                <div class="service-text-wrapper" data-aos="fade-left">
+                    <h2 class="section-title">Bespoke Gear <span class="text-copper">Forging</span></h2>
+                    <p class="text-white/70 mb-6 leading-relaxed">
+                        We specialize in the creation of custom gears tailored to your exact specifications. Our process begins with a deep dive into your application's requirements, ensuring the final product delivers optimal performance, longevity, and reliability. We transform high-grade materials into precision-engineered components.
+                    </p>
+                    <ul class="service-list text-white/80">
+                        <li><i class="fas fa-check-double"></i><div><strong>Spur & Helical Gears:</strong> For parallel shaft power transmission.</div></li>
+                        <li><i class="fas fa-check-double"></i><div><strong>Bevel & Miter Gears:</strong> For changing rotational direction.</div></li>
+                        <li><i class="fas fa-check-double"></i><div><strong>Worm Gears & Shafts:</strong> For high-ratio speed reduction.</div></li>
+                        <li><i class="fas fa-check-double"></i><div><strong>Internal Gears & Splines:</strong> For compact, high-torque applications.</div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service 2: Reverse Engineering -->
+    <section class="service-section bg-black/20 section-divider">
+        <div class="container mx-auto px-6">
+            <div class="service-content-wrapper md:flex-row-reverse">
+                <div class="service-image-wrapper" data-aos="fade-left">
+                    <img src="images/12.jpg" alt="Reverse Engineering" class="w-full">
+                </div>
+                <div class="service-text-wrapper" data-aos="fade-right">
+                    <h2 class="section-title">Reverse <span class="text-copper">Engineering</span></h2>
+                    <p class="text-white/70 mb-6 leading-relaxed">
+                        Legacy systems often rely on parts that are no longer in production. Our reverse engineering service is the solution. We meticulously deconstruct and analyze existing components to recreate them with modern materials and manufacturing techniques, often improving upon the original design for enhanced performance and durability.
+                    </p>
+                    <ul class="service-list text-white/80">
+                        <li><i class="fas fa-check-double"></i><div><strong>3D Laser Scanning:</strong> Capturing precise geometry of complex parts.</div></li>
+                        <li><i class="fas fa-check-double"></i><div><strong>CAD Model Recreation:</strong> Building production-ready digital blueprints.</div></li>
+                        <li><i class="fas fa-check-double"></i><div><strong>Material Analysis:</strong> Identifying original alloys for accurate replication.</div></li>
+                        <li><i class="fas fa-check-double"></i><div><strong>Prototyping & Validation:</strong> Ensuring perfect fit and function before full production.</div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service 3: Prototyping & Design -->
+    <section class="service-section bg-transparent">
+        <div class="container mx-auto px-6">
+            <div class="service-content-wrapper">
+                <div class="service-image-wrapper" data-aos="fade-right">
+                    <img src="images/13.jpg" alt="Prototyping & Design" class="w-full">
+                </div>
+                <div class="service-text-wrapper" data-aos="fade-left">
+                    <h2 class="section-title">Design & <span class="text-copper">Prototyping</span></h2>
+                    <p class="text-white/70 mb-6 leading-relaxed">
+                        From a simple sketch to a fully-realized concept, our engineering team collaborates with you to design and prototype innovative gearing solutions. We utilize advanced simulation software to test for stress, load, and wear, ensuring your design is viable and optimized before any metal is cut.
+                    </p>
+                    <ul class="service-list text-white/80">
+                        <li><i class="fas fa-check-double"></i><div><strong>FEA & Stress Analysis:</strong> Simulating real-world conditions digitally.</div></li>
+                        <li><i class="fas fa-check-double"></i><div><strong>Rapid Prototyping:</strong> Creating functional models for physical testing.</div></li>
+                        <li><i class="fas fa-check-double"></i><div><strong>Gearbox Design:</strong> Engineering complete transmission systems.</div></li>
+                        <li><i class="fas fa-check-double"></i><div><strong>Material & Treatment Consultation:</strong> Selecting the best options for your needs.</div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality & Materials Section -->
+    <section class="py-24 bg-black/20 section-divider">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="section-title" data-aos="fade-up">Quality & <span class="text-brass">Materials</span></h2>
+            <p class="text-lg text-gray-400 max-w-3xl mx-auto font-light mb-16" data-aos="fade-up" data-aos-delay="100">
+                The foundation of a superior gear is superior material and uncompromising quality control.
+            </p>
+            <div class="quality-grid">
+                <div class="quality-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-5xl text-copper mb-6"><i class="fas fa-gem"></i></div>
+                    <h3 class="font-heading text-xl text-white font-bold">Premium Alloys</h3>
+                    <p class="text-white/60 text-sm mt-2">We source a wide range of certified materials, including carbon steel, stainless steel, bronze, and exotic alloys for specialized applications.</p>
+                </div>
+                <div class="quality-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-5xl text-copper mb-6"><i class="fas fa-ruler-combined"></i></div>
+                    <h3 class="font-heading text-xl text-white font-bold">Metrological Inspection</h3>
+                    <p class="text-white/60 text-sm mt-2">Our climate-controlled metrology lab uses CMMs and advanced optical scanners to verify every dimension to sub-micron tolerances.</p>
+                </div>
+                <div class="quality-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-5xl text-copper mb-6"><i class="fas fa-certificate"></i></div>
+                    <h3 class="font-heading text-xl text-white font-bold">Full Traceability</h3>
+                    <p class="text-white/60 text-sm mt-2">We provide comprehensive documentation and certification for materials, heat treatments, and inspection results for every project.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black section-divider">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-sm">
+                <!-- Company Info -->
+                <div>
+                    <h3 class="text-xl font-bold font-heading text-white mb-4">Standard Gear<span class="text-brass">.</span></h3>
+                    <p class="text-white/50">Engineering Legacies Since 1982.</p>
+                </div>
+                <!-- Links -->
+                <div>
+                    <h4 class="text-base font-bold tracking-widest uppercase text-white/80 mb-4">Navigate</h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="nav-link">About</a></li>
+                        <li><a href="services.html" class="nav-link">Services</a></li>
+                        <li><a href="#" class="nav-link">Contact</a></li>
+                       
+                    </ul>
+                </div>
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-base font-bold tracking-widest uppercase text-white/80 mb-4">Location</h4>
+                    <address class="not-italic text-white/50 space-y-3">
+                        <p><i class="fas fa-map-marker-alt mr-2 text-copper"></i>2467 SE Ochoco St, Portland, OR 97222</p>
+                        <p><i class="fas fa-phone mr-2 text-copper"></i>(503) 513-7118</p>
+                        <p><i class="fas fa-envelope mr-2 text-copper"></i>contact@standardgear.com</p>
+                    </address>
+                </div>
+                <!-- Social Media -->
+                <div>
+                    <h4 class="text-base font-bold tracking-widest uppercase text-white/80 mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white/50 hover:text-brass text-2xl"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white/50 hover:text-brass text-2xl"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white/50 hover:text-brass text-2xl"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-white/10 pt-8 text-center text-white/40 text-xs">
+                <p>&copy; <span id="year"></span> Standard Gear Manufacturing Inc. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- AOS (Animate on Scroll) -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 50,
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>

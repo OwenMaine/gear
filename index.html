@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standard Gear Manufacturing Inc. | Bespoke Engineering</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- AOS (Animate on Scroll) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* ============================================
+        ECCENTRIC & CREATIVE REDESIGN STYLES
+        Theme: Vintage Industrial / Blueprint Chic
+        Palette: Charcoal, Oxidized Copper, Brass, Parchment
+        ============================================
+        */
+        :root {
+            --bg-dark-charcoal: #1A1A1A;
+            --text-parchment: #FDF6E3;
+            --accent-copper: #468A84; /* A teal/copper-oxide color */
+            --accent-brass: #D4AF37; /* A muted brass/gold */
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background-color: var(--bg-dark-charcoal);
+            color: var(--text-parchment);
+        }
+
+        .font-heading {
+            font-family: 'Cinzel', serif;
+        }
+        
+        /* Animated Gear Background for Hero */
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-section {
+            background: 
+                linear-gradient(rgba(26, 26, 26, 0.92), rgba(26, 26, 26, 0.92)), 
+                url('images/1.jpg') no-repeat center center/cover;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '\f013'; /* Font Awesome gear icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            font-size: 80vh;
+            top: 10vh;
+            left: -20vh;
+            color: rgba(253, 246, 227, 0.03);
+            animation: rotate 60s linear infinite;
+            z-index: 1;
+        }
+
+        .text-copper { color: var(--accent-copper); }
+        .bg-copper { background-color: var(--accent-copper); }
+        .border-copper { border-color: var(--accent-copper); }
+        
+        .text-brass { color: var(--accent-brass); }
+        .bg-brass { background-color: var(--accent-brass); }
+        .border-brass { border-color: var(--accent-brass); }
+        
+        .btn-primary {
+            @apply inline-block bg-transparent border-2 border-brass text-brass font-bold py-3 px-8 rounded-sm uppercase tracking-widest transition-all duration-300 ease-in-out;
+        }
+
+        .btn-primary:hover {
+            @apply bg-brass text-black shadow-lg;
+            transform: translateY(-3px);
+        }
+
+        .section-title {
+            @apply text-4xl md:text-5xl font-heading font-bold text-white mb-4 tracking-wider;
+        }
+        
+        .section-subtitle {
+            @apply text-lg text-gray-400 max-w-3xl mx-auto font-light;
+        }
+
+        .service-card {
+            @apply bg-black/20 p-8 border border-white/10 h-full transition-all duration-300;
+        }
+        
+        .service-card:hover {
+            @apply transform -translate-y-2 border-copper;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .nav-link {
+            @apply text-white/70 hover:text-brass transition-colors duration-300 tracking-widest text-sm;
+        }
+        
+        .active-nav {
+             @apply text-brass font-bold;
+        }
+
+        .section-divider {
+            border-top: 1px solid rgba(253, 246, 227, 0.1);
+        }
+
+    </style>
+</head>
+<body class="bg-gray-900">
+
+    <!-- Header -->
+    <header class="bg-black/50 backdrop-blur-sm fixed w-full z-50 top-0">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center section-divider">
+            <a href="#" class="text-2xl font-bold font-heading text-white">
+                Standard Gear<span class="text-brass">.</span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#" class="nav-link active-nav">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="hidden md:flex items-center space-x-4 text-sm">
+                 <i class="fas fa-phone text-brass"></i>
+                 <span class="text-white/70">(503) 513-7118</span>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black/90">
+            <a href="#" class="block py-3 px-4 text-sm hover:bg-brass hover:text-black text-white">Home</a>
+            <a href="about.html" class="block py-3 px-4 text-sm hover:bg-brass hover:text-black text-white">About Us</a>
+            <a href="services.html" class="block py-3 px-4 text-sm hover:bg-brass hover:text-black text-white">Services</a>
+            <a href="contact.html" class="block py-3 px-4 text-sm hover:bg-brass hover:text-black text-white">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section h-screen flex items-center justify-center text-center relative">
+        <div class="container mx-auto px-6 z-10" data-aos="zoom-in">
+            <h1 class="text-5xl md:text-7xl font-extrabold font-heading text-white leading-tight mb-4">
+                Artisans of <span class="text-brass">Motion</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-white/80 mb-8 max-w-4xl mx-auto font-light">
+                Where heritage craftsmanship meets modern precision. We don't just make gears; we engineer legacies.
+            </p>
+            <a href="#services" class="btn-primary">Discover Our Craft</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-24 bg-transparent">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="md:w-1/2" data-aos="fade-right" data-aos-duration="1200">
+                    <div class="border-2 border-white/20 p-2">
+                         <img src="images/2.jpg" alt="Our Workshop" class="w-full">
+                    </div>
+                </div>
+                <div class="md:w-1/2" data-aos="fade-left" data-aos-duration="1200">
+                    <h2 class="section-title">A <span class="text-copper">Legacy</span> Forged in Steel</h2>
+                    <p class="text-white/70 mb-6 leading-relaxed">
+                        For over four decades, Standard Gear has been more than a manufacturer; we are a vital component of Portland's industrial heart. Our story is one of relentless dedication to the art and science of gear making, blending time-honored techniques with the bleeding edge of technology.
+                    </p>
+                    <p class="text-white/70 mb-8 leading-relaxed">
+                        Our facility is a testament to this philosophy—a place where raw metal is transformed into instruments of perfect, perpetual motion.
+                    </p>
+                    <a href="#" class="btn-primary">Read Our Story</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-black/20 section-divider">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="section-title" data-aos="fade-up">The <span class="text-brass">Anatomy</span> of our Service</h2>
+            <p class="section-subtitle mb-16" data-aos="fade-up" data-aos-delay="100">
+                We provide a spectrum of specialized services, ensuring every project is a masterpiece of engineering.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-5xl text-copper mb-6"><i class="fas fa-atom"></i></div>
+                    <h3 class="text-2xl font-bold font-heading text-white mb-4">Bespoke Gear Forging</h3>
+                    <p class="text-white/60">From initial concept to final product, we craft custom gears for any application, ensuring perfect integration and performance.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-5xl text-copper mb-6"><i class="fas fa-pencil-ruler"></i></div>
+                    <h3 class="text-2xl font-bold font-heading text-white mb-4">Reverse Engineering</h3>
+                    <p class="text-white/60">We can deconstruct, analyze, and replicate obsolete or undocumented parts, breathing new life into vintage machinery.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-5xl text-copper mb-6"><i class="fas fa-vial-circle-check"></i></div>
+                    <h3 class="text-2xl font-bold font-heading text-white mb-4">Metallurgic Analysis</h3>
+                    <p class="text-white/60">Our in-house lab ensures the material integrity of every component, guaranteeing durability under the most extreme conditions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why Choose Us Section -->
+    <section id="why-us" class="py-24 bg-transparent">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row-reverse items-center gap-16">
+                <div class="md:w-1/2" data-aos="fade-left" data-aos-duration="1200">
+                     <div class="border-2 border-white/20 p-2">
+                        <img src="images/3.jpg" alt="Precision Measurement" class="w-full">
+                     </div>
+                </div>
+                <div class="md:w-1/2" data-aos="fade-right" data-aos-duration="1200">
+                    <h2 class="section-title">The <span class="text-copper">Standard</span> of Excellence</h2>
+                    <ul class="space-y-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-award text-brass text-3xl mr-5 mt-1"></i>
+                            <div>
+                                <h4 class="text-xl font-bold font-heading text-white">Generational Mastery</h4>
+                                <p class="text-white/70">Our expertise isn't learned; it's inherited and refined over 40 years of hands-on experience.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-crosshairs text-brass text-3xl mr-5 mt-1"></i>
+                            <div>
+                                <h4 class="text-xl font-bold font-heading text-white">Microscopic Precision</h4>
+                                <p class="text-white/70">We operate at the threshold of possibility, where tolerances are measured in microns, not millimeters.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-people-arrows text-brass text-3xl mr-5 mt-1"></i>
+                            <div>
+                                <h4 class="text-xl font-bold font-heading text-white">Synergistic Partnership</h4>
+                                <p class="text-white/70">Your vision is our blueprint. We integrate with your team to ensure a seamless and successful collaboration.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 bg-cover bg-center bg-fixed" style="background-image: linear-gradient(rgba(26, 26, 26, 0.85), rgba(26, 26, 26, 0.85)), url('images/4.jpg')">
+        <div class="container mx-auto px-6 text-center" data-aos="zoom-in">
+            <h2 class="text-4xl font-heading font-bold text-white mb-4">Ready to Build the Future?</h2>
+            <p class="text-white/80 max-w-2xl mx-auto mb-8">Let's discuss how our precision engineering can elevate your next project. Contact us for a consultation.</p>
+            <a href="#" class="btn-primary">Request a Quote</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black section-divider">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-sm">
+                <!-- Company Info -->
+                <div>
+                    <h3 class="text-xl font-bold font-heading text-white mb-4">Standard Gear<span class="text-brass">.</span></h3>
+                    <p class="text-white/50">Engineering Legacies Since 1982.</p>
+                </div>
+                <!-- Links -->
+                <div>
+                    <h4 class="text-base font-bold tracking-widest uppercase text-white/80 mb-4">Navigate</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="nav-link">About</a></li>
+                        <li><a href="#" class="nav-link">Services</a></li>
+                        <li><a href="#" class="nav-link">Contact</a></li>
+                       
+                    </ul>
+                </div>
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-base font-bold tracking-widest uppercase text-white/80 mb-4">Location</h4>
+                    <address class="not-italic text-white/50 space-y-3">
+                        <p><i class="fas fa-map-marker-alt mr-2 text-copper"></i>2467 SE Ochoco St, Portland, OR 97222</p>
+                        <p><i class="fas fa-phone mr-2 text-copper"></i>(503) 513-7118</p>
+                        <p><i class="fas fa-envelope mr-2 text-copper"></i>contact@standardgear.com</p>
+                    </address>
+                </div>
+                <!-- Social Media -->
+                <div>
+                    <h4 class="text-base font-bold tracking-widest uppercase text-white/80 mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white/50 hover:text-brass text-2xl"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white/50 hover:text-brass text-2xl"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white/50 hover:text-brass text-2xl"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-white/10 pt-8 text-center text-white/40 text-xs">
+                <p>&copy; <span id="year"></span> Standard Gear Manufacturing Inc. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- AOS (Animate on Scroll) -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 50,
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

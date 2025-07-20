@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Standard Gear Manufacturing Inc.</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- AOS (Animate on Scroll) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* ============================================
+        SHARED STYLES (from homepage)
+        ============================================ */
+        :root {
+            --bg-dark-charcoal: #1A1A1A;
+            --text-parchment: #FDF6E3;
+            --accent-copper: #468A84;
+            --accent-brass: #D4AF37;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background-color: var(--bg-dark-charcoal);
+            color: var(--text-parchment);
+        }
+
+        .font-heading {
+            font-family: 'Cinzel', serif;
+        }
+        
+        .text-copper { color: var(--accent-copper); }
+        .text-brass { color: var(--accent-brass); }
+        
+        .btn-primary {
+            @apply inline-block bg-transparent border-2 border-brass text-brass font-bold py-3 px-8 rounded-sm uppercase tracking-widest transition-all duration-300 ease-in-out;
+        }
+
+        .btn-primary:hover {
+            @apply bg-brass text-black shadow-lg;
+            transform: translateY(-3px);
+        }
+
+        .section-title {
+            @apply text-4xl md:text-5xl font-heading font-bold text-white mb-4 tracking-wider;
+        }
+        
+        .section-subtitle {
+            @apply text-lg text-gray-400 max-w-3xl mx-auto font-light;
+        }
+
+        .nav-link {
+            @apply text-white/70 hover:text-brass transition-colors duration-300 tracking-widest text-sm;
+        }
+        
+        .active-nav {
+             @apply text-brass font-bold;
+        }
+
+        .section-divider {
+            border-top: 1px solid rgba(253, 246, 227, 0.1);
+        }
+        
+        /* ============================================
+        ABOUT PAGE SPECIFIC STYLES
+        ============================================ */
+        .page-hero {
+            height: 60vh;
+            background: linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.8)), url('images/5.jpg') no-repeat center center/cover;
+            background-attachment: fixed;
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background-color: var(--accent-brass);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1.5px;
+            opacity: 0.3;
+        }
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        .timeline-container.left {
+            left: 0;
+        }
+        .timeline-container.right {
+            left: 50%;
+        }
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12.5px;
+            background-color: var(--bg-dark-charcoal);
+            border: 4px solid var(--accent-copper);
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+            transition: background-color 0.3s ease;
+        }
+        .timeline-container.right::after {
+            left: -12.5px;
+        }
+        .timeline-container:hover::after {
+            background-color: var(--accent-copper);
+        }
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: rgba(0,0,0,0.2);
+            position: relative;
+            border: 1px solid rgba(253, 246, 227, 0.1);
+        }
+        .timeline-year {
+            font-family: 'Cinzel', serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--accent-brass);
+        }
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            .timeline-container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            .timeline-container.left, .timeline-container.right {
+                left: 0%;
+            }
+            .timeline-container.left::after, .timeline-container.right::after {
+                left: 18px;
+            }
+        }
+        
+        .team-member-card {
+            @apply bg-black/20 text-center p-6 border border-white/10 transition-all duration-300;
+        }
+        .team-member-card:hover {
+            @apply border-brass transform -translate-y-2;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+        .team-member-img {
+            @apply w-32 h-32 rounded-full mx-auto mb-4 border-4 border-white/20 object-cover;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="bg-black/50 backdrop-blur-sm fixed w-full z-50 top-0">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center section-divider">
+            <a href="index.html" class="text-2xl font-bold font-heading text-white">
+                Standard Gear<span class="text-brass">.</span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link active-nav">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="hidden md:flex items-center space-x-4 text-sm">
+                 <i class="fas fa-phone text-brass"></i>
+                 <span class="text-white/70">(503) 513-7118</span>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black/90">
+            <a href="index.html" class="block py-3 px-4 text-sm hover:bg-brass hover:text-black text-white">Home</a>
+            <a href="about.html" class="block py-3 px-4 text-sm hover:bg-brass hover:text-black text-white">About Us</a>
+            <a href="#" class="block py-3 px-4 text-sm hover:bg-brass hover:text-black text-white">Services</a>
+            <a href="#" class="block py-3 px-4 text-sm hover:bg-brass hover:text-black text-white">Contact</a>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero flex items-center justify-center text-center">
+        <div data-aos="zoom-in">
+            <h1 class="text-5xl md:text-7xl font-extrabold font-heading text-white">
+                The <span class="text-brass">Architects</span> Behind the Art
+            </h1>
+            <p class="text-xl text-white/80 mt-4">Discover the history, people, and philosophy that define Standard Gear.</p>
+        </div>
+    </section>
+
+    <!-- Our History Section -->
+    <section id="history" class="py-24 bg-transparent">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title" data-aos="fade-up">Our <span class="text-copper">Journey</span> Through Time</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                    Four decades of innovation, precision, and unwavering commitment.
+                </p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-container left" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h3 class="timeline-year">1982</h3>
+                        <p class="text-white/70 mt-2">Standard Gear Manufacturing is founded in a small Portland workshop by Johnathan Crane, a master machinist with a vision for unparalleled quality.</p>
+                    </div>
+                </div>
+                <div class="timeline-container right" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <h3 class="timeline-year">1995</h3>
+                        <p class="text-white/70 mt-2">Investment in our first 5-axis CNC machine, revolutionizing our capabilities and allowing for the creation of highly complex geometries.</p>
+                    </div>
+                </div>
+                <div class="timeline-container left" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h3 class="timeline-year">2008</h3>
+                        <p class="text-white/70 mt-2">Expansion into our current facility on SE Ochoco St, tripling our floor space and establishing an in-house metallurgical lab.</p>
+                    </div>
+                </div>
+                <div class="timeline-container right" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <h3 class="timeline-year">2020</h3>
+                        <p class="text-white/70 mt-2">Awarded "Manufacturer of the Year" by the Pacific Northwest Aerospace Alliance for our contributions to the sector.</p>
+                    </div>
+                </div>
+                 <div class="timeline-container left" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h3 class="timeline-year">Today</h3>
+                        <p class="text-white/70 mt-2">Continuing our legacy of excellence, we embrace new technologies like additive manufacturing while staying true to our core principles of precision and partnership.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Philosophy Section -->
+    <section id="philosophy" class="py-24 bg-transparent">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="md:w-1/2" data-aos="fade-right">
+                     <div class="border-2 border-white/20 p-2">
+                        <img src="images/9.jpg" alt="Our Workshop" class="w-full">
+                     </div>
+                </div>
+                <div class="md:w-1/2" data-aos="fade-left">
+                    <h2 class="section-title">The <span class="text-copper">Soul</span> of the Machine</h2>
+                    <p class="text-white/70 mb-6 leading-relaxed">
+                        Our philosophy is simple: perfection is the only acceptable standard. We believe that behind every great machine is a set of perfectly crafted gears, and that responsibility inspires us. It's a belief forged in the heat of the furnace and polished on the factory floor.
+                    </p>
+                    <p class="text-white/70 mb-8 leading-relaxed">
+                        We are not just suppliers; we are partners in creation. Our workshop is a sanctuary of precision, where technology and craftsmanship coexist to turn ambitious designs into tangible, reliable components.
+                    </p>
+                    <a href="#" class="btn-primary">Explore Our Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black section-divider">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-sm">
+                <!-- Company Info -->
+                <div>
+                    <h3 class="text-xl font-bold font-heading text-white mb-4">Standard Gear<span class="text-brass">.</span></h3>
+                    <p class="text-white/50">Engineering Legacies Since 1982.</p>
+                </div>
+                <!-- Links -->
+                <div>
+                    <h4 class="text-base font-bold tracking-widest uppercase text-white/80 mb-4">Navigate</h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="nav-link">About</a></li>
+                        <li><a href="services.html" class="nav-link">Services</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                       
+                    </ul>
+                </div>
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-base font-bold tracking-widest uppercase text-white/80 mb-4">Location</h4>
+                    <address class="not-italic text-white/50 space-y-3">
+                        <p><i class="fas fa-map-marker-alt mr-2 text-copper"></i>2467 SE Ochoco St, Portland, OR 97222</p>
+                        <p><i class="fas fa-phone mr-2 text-copper"></i>(503) 513-7118</p>
+                        <p><i class="fas fa-envelope mr-2 text-copper"></i>contact@standardgear.com</p>
+                    </address>
+                </div>
+                <!-- Social Media -->
+                <div>
+                    <h4 class="text-base font-bold tracking-widest uppercase text-white/80 mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white/50 hover:text-brass text-2xl"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white/50 hover:text-brass text-2xl"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white/50 hover:text-brass text-2xl"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-white/10 pt-8 text-center text-white/40 text-xs">
+                <p>&copy; <span id="year"></span> Standard Gear Manufacturing Inc. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- AOS (Animate on Scroll) -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 50,
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
